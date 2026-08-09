@@ -1,0 +1,41 @@
+# Env & secrets
+.env
+.env.local
+*.pem
+*.key
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+*.db
+*.sqlite3
+
+# Node
+node_modules/
+dist/
+*.local
+
+# IDE / OS
+.idea/
+.vscode/
+*.swp
+.DS_Store
+Thumbs.db
+
+# Build / logs
+*.log
+.coverage
+htmlcov/
+.terraform/
+*.tfstate
+*.tfstate.*
+
+# Scaffold archive (source of truth is the tree)
+aegis-cloud-scaffold.zip
+_scaffold_preview/
