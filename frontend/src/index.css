@@ -1,0 +1,303 @@
+:root {
+  --bg0: #0c1210;
+  --bg1: #121a17;
+  --ink: #e8f0eb;
+  --muted: #8fa398;
+  --line: rgba(232, 240, 235, 0.1);
+  --accent: #3dba7a;
+  --accent-dim: rgba(61, 186, 122, 0.15);
+  --warn: #d4a017;
+  --danger: #e07060;
+  --card: rgba(18, 28, 24, 0.85);
+  --serif: "Instrument Serif", Georgia, serif;
+  --sans: "DM Sans", system-ui, sans-serif;
+  color-scheme: dark;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  margin: 0;
+  min-height: 100%;
+}
+
+body {
+  font-family: var(--sans);
+  color: var(--ink);
+  background:
+    radial-gradient(1200px 600px at 10% -10%, rgba(61, 186, 122, 0.18), transparent 55%),
+    radial-gradient(900px 500px at 90% 0%, rgba(45, 90, 70, 0.35), transparent 50%),
+    linear-gradient(165deg, var(--bg0), var(--bg1) 40%, #0a100e);
+  background-attachment: fixed;
+}
+
+.app-shell {
+  min-height: 100vh;
+}
+
+.page {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem 4rem;
+}
+
+.hero {
+  margin-bottom: 2.5rem;
+  animation: rise 0.7s ease both;
+}
+
+.brand {
+  font-family: var(--serif);
+  font-size: clamp(2.8rem, 7vw, 4.2rem);
+  line-height: 0.95;
+  margin: 0 0 0.75rem;
+  letter-spacing: -0.02em;
+}
+
+.hero h1 {
+  font-family: var(--sans);
+  font-weight: 600;
+  font-size: 1.05rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin: 0 0 0.6rem;
+}
+
+.hero__sub {
+  max-width: 36rem;
+  color: var(--muted);
+  margin: 0 0 1.4rem;
+  line-height: 1.55;
+}
+
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.btn {
+  font-family: var(--sans);
+  font-size: 0.92rem;
+  font-weight: 600;
+  border: 1px solid transparent;
+  border-radius: 0.4rem;
+  padding: 0.65rem 1.1rem;
+  cursor: pointer;
+  transition: transform 0.15s ease, background 0.15s ease, border-color 0.15s ease;
+}
+
+.btn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.btn.primary {
+  background: var(--accent);
+  color: #04110a;
+}
+
+.btn.primary:hover:not(:disabled) {
+  transform: translateY(-1px);
+  background: #4fd18c;
+}
+
+.btn.ghost {
+  background: transparent;
+  border-color: var(--line);
+  color: var(--ink);
+}
+
+.btn.ghost:hover:not(:disabled) {
+  border-color: rgba(232, 240, 235, 0.28);
+}
+
+.savings-pill {
+  color: var(--accent);
+  font-size: 0.9rem;
+  font-weight: 500;
+  padding: 0.4rem 0.75rem;
+  background: var(--accent-dim);
+  border-radius: 0.35rem;
+}
+
+.banner {
+  padding: 0.85rem 1rem;
+  border-radius: 0.4rem;
+  margin-bottom: 1.25rem;
+}
+
+.banner.error {
+  background: rgba(224, 112, 96, 0.12);
+  color: #ffb4a8;
+  border: 1px solid rgba(224, 112, 96, 0.3);
+}
+
+.banner.muted {
+  color: var(--muted);
+}
+
+.findings-grid {
+  display: grid;
+  gap: 1.1rem;
+}
+
+.finding-card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--accent);
+  border-radius: 0.55rem;
+  padding: 1.25rem 1.35rem 1.35rem;
+  backdrop-filter: blur(8px);
+  animation: rise 0.55s ease both;
+}
+
+.finding-card.severity-medium {
+  border-left-color: var(--warn);
+}
+
+.finding-card.severity-high {
+  border-left-color: var(--danger);
+}
+
+.finding-card:nth-child(2) {
+  animation-delay: 0.06s;
+}
+.finding-card:nth-child(3) {
+  animation-delay: 0.12s;
+}
+.finding-card:nth-child(4) {
+  animation-delay: 0.18s;
+}
+
+.finding-card__header {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  align-items: flex-start;
+}
+
+.finding-card__eyebrow {
+  margin: 0 0 0.25rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.finding-card h2 {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.finding-card__id {
+  margin: 0.2rem 0 0;
+  font-size: 0.82rem;
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.finding-card__badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  justify-content: flex-end;
+}
+
+.badge {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 0.28rem 0.55rem;
+  border-radius: 0.3rem;
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.badge.severity {
+  color: var(--accent);
+  background: var(--accent-dim);
+}
+
+.severity-medium .badge.severity {
+  color: #f0c75e;
+  background: rgba(212, 160, 23, 0.15);
+}
+
+.severity-high .badge.severity {
+  color: #ffb4a8;
+  background: rgba(224, 112, 96, 0.15);
+}
+
+.badge.conf {
+  color: var(--muted);
+}
+
+.finding-card__metrics {
+  margin: 1rem 0 0.75rem;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+.finding-card__explanation {
+  margin: 0 0 1.1rem;
+  line-height: 1.55;
+  color: #d5e2da;
+}
+
+.finding-card__meta {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 0.85rem;
+  margin: 0;
+  padding-top: 1rem;
+  border-top: 1px solid var(--line);
+}
+
+.finding-card__meta dt {
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 0.25rem;
+}
+
+.finding-card__meta dd {
+  margin: 0;
+  font-size: 0.92rem;
+  line-height: 1.4;
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 640px) {
+  .page {
+    padding: 2rem 1rem 3rem;
+  }
+
+  .finding-card__header {
+    flex-direction: column;
+  }
+
+  .finding-card__badges {
+    justify-content: flex-start;
+  }
+}
